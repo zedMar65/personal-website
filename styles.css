@@ -1,0 +1,207 @@
+/* body {
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.light {
+    background-color: white;
+    color: black;
+}
+
+body.dark {
+    background-color: black;
+    color: white;
+} */
+
+@font-face {
+    font-family: 'ArcadeClassic';  /* The name you'll use in CSS */
+    src: url('assets/Pixel Emulator.otf') format('opentype');  /* The location and type of the font */
+    font-weight: normal;  /* Optional, if you want to specify weight */
+    font-style: normal;   /* Optional, if you want to specify style (e.g., italic) */
+}
+
+body {
+    font-family: 'ArcadeClassic', sans-serif;  /* Use your custom font */
+    height: 100vh;
+    width: 100%;
+    color: #f5f5f5; 
+    text-align: center;
+    background: radial-gradient(circle, #ff7eb3 30%, #ff7eb3, #ff758c, #ff6a65, #ff5e3c);
+    padding: None;
+    margin: None;
+    width: 98vw;
+}
+
+/* button-esk aestetic */
+.title{
+    cursor: pointer;
+    display: block;
+    float: center;
+    font-size: 5vw;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    padding: 0.5rem;
+    color: #f5f5f5; 
+    background: #f376aa;
+    border-bottom: 8px solid #f5f5f5;
+    border-left: 2px solid #f5f5f5;
+    border-right: 2px solid #f5f5f5;
+    border-top: 0.2px solid rgb(233, 233, 233);
+    border-radius: 1rem 1rem 1rem 1rem;
+    user-select: none;
+    box-shadow: black 0px 0px 5px;
+}
+
+/* just a gap, nothing to see here... */
+
+/* game cartridge styles :3 */
+.cartridge h2{
+    user-select: none;
+    font-size: 2vw;
+    color: #f5f5f5;
+    text-align: right;
+}
+
+.cartridge{
+    width: 50vw;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.arrows{
+    position: relative;
+    display: block;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    image-rendering: pixelated;
+}
+.arrows:hover{
+    cursor: pointer;
+}
+
+
+@keyframes rotateMove {
+    0% {
+        transform: rotate(0deg) translateX(0) translateY(0);
+    }
+    10% {
+        transform: rotate(2deg) translateX(3px) translateY(-3px);
+    }
+    20% {
+        transform: rotate(-4deg) translateX(5px) translateY(4px);
+    }
+    30% {
+        transform: rotate(3deg) translateX(7px) translateY(-5px);
+    }
+    40% {
+        transform: rotate(-2deg) translateX(10px) translateY(2px);
+    }
+    50% {
+        transform: rotate(4deg) translateX(6px) translateY(-3px);
+    }
+    60% {
+        transform: rotate(-3deg) translateX(4px) translateY(7px);
+    }
+    70% {
+        transform: rotate(2deg) translateX(8px) translateY(5px);
+    }
+    80% {
+        transform: rotate(1deg) translateX(5px) translateY(-4px);
+    }
+    90% {
+        transform: rotate(-1deg) translateX(7px) translateY(3px);
+    }
+    100% {
+        transform: rotate(0deg) translateX(0) translateY(0);
+    }
+}
+.cartridge h2{
+    font-size: 2vw;
+    color: #f5f5f5;
+    text-align: center;
+}
+.cartridge-img img{
+    position: relative;
+    width: 100%;
+    height: auto;
+    image-rendering: pixelated;
+    animation: rotateMove 20s infinite ease-in-out;
+    transition: transform 1s ease-in-out;
+}
+
+.cartridge-img:hover {
+    margin-left: 37.5%;
+    padding: 0;
+    display: block;
+    float: left;
+    position: relative;
+    top: -12vw;
+    width: 25%;
+    transform: translateY(-40px) !important;
+    transition: transform 0.6s ease-in-out;
+}
+.cartridge-img:not(:hover) {
+    margin-left: 37.5%;
+    padding: 0;
+    display: block;
+    float: left;
+    position: relative;
+    top: -12vw;
+    width: 25%;
+    transition: transform 2s ease-in-out; /* Smooth transition when not hovered */
+}
+
+
+
+/* Spark styles */
+.spark {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: radial-gradient(circle, rgb(255, 255, 255), rgb(255, 0, 0));
+    border-radius: 50%;
+    opacity: 1;
+    pointer-events: none;
+    transform: scale(1);
+    animation: sparkle 0.3s ease-out forwards, explosion 0.2s ease-out forwards;
+    filter: blur(10px);
+    box-shadow: 0 0 30px rgb(255, 255, 255), 0 0 60px rgba(255, 0, 0, 1);
+}
+
+@keyframes sparkle {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes explosion {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.red-spark {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: radial-gradient(circle, rgb(255, 0, 0), rgb(255, 0, 0));
+    border-radius: 50%;
+    opacity: 1;
+    pointer-events: none;
+    transform: scale(1);
+    animation: sparkle 0.3s ease-out forwards, explosion 0.2s ease-out forwards;
+    filter: blur(10px);
+    box-shadow: 0 0 30px rgb(255, 255, 255), 0 0 60px rgba(255, 0, 0, 1);
+}
