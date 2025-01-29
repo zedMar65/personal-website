@@ -22,13 +22,62 @@ body.dark {
 body {
     font-family: 'ArcadeClassic', sans-serif;  /* Use your custom font */
     height: 100vh;
-    width: 100%;
+    width: 100vw;
+    /* width: 117%; */
+    /* border: red solid 2px; */
     color: #f5f5f5; 
     text-align: center;
-    background: radial-gradient(circle, #ff7eb3 30%, #ff7eb3, #ff758c, #ff6a65, #ff5e3c);
-    padding: None;
-    margin: None;
-    width: 98vw;
+    background-color: #f376aa;
+    padding: 0px;
+    margin: 0px;
+    /* overflow: hidden; */
+}
+
+.background-case{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    overflow: hidden;
+}
+.background-case2{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    overflow: hidden;
+    /* border: red solid 2px; */
+    top: 100%;
+}
+
+.background2{
+    background: radial-gradient(circle, #ff758c, #ff6a65, #ff5e3c);
+    background-size: 100% 100%;
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    z-index: -1;
+    top: -50%;
+    left: -50%;
+    pointer-events: none;
+
+}
+
+.background{
+    background: radial-gradient(circle, #ff7eb3 5%, #ff758c, #ff6a65, #ff5e3c);
+    background-size: 100% 100%;
+    width: 200%;
+    height: 200%;
+    position: absolute;
+    z-index: -1;
+    top: -50%;
+    left: -50%;
+    pointer-events: none;
+
 }
 
 /* button-esk aestetic */
@@ -36,7 +85,8 @@ body {
     cursor: pointer;
     display: block;
     float: center;
-    font-size: 5vw;
+    /* font-size: 500%; */
+    font-size: clamp(2rem, 5vw, 5rem);
     margin-left: auto;
     margin-right: auto;
     width: max-content;
@@ -52,18 +102,20 @@ body {
     box-shadow: black 0px 0px 5px;
 }
 
+.center{
+    /* display: flex; */
+    padding-top: 4vh;
+    width: 100%;
+}
+
 /* just a gap, nothing to see here... */
 
 /* game cartridge styles :3 */
-.cartridge h2{
-    user-select: none;
-    font-size: 2vw;
-    color: #f5f5f5;
-    text-align: right;
-}
 
 .cartridge{
+    /* border: red solid 2px; */
     width: 50vw;
+    height: 0px;
     margin-right: auto;
     margin-left: auto;
 }
@@ -117,18 +169,24 @@ body {
         transform: rotate(0deg) translateX(0) translateY(0);
     }
 }
+
+
 .cartridge h2{
+    user-select: none;
     font-size: 2vw;
     color: #f5f5f5;
     text-align: center;
 }
-.cartridge-img img{
+
+.cartridge-img img {
     position: relative;
     width: 100%;
     height: auto;
     image-rendering: pixelated;
-    animation: rotateMove 20s infinite ease-in-out;
-    transition: transform 1s ease-in-out;
+    animation: rotateMove 20s infinite ease-in-out; 
+    transition: transform 0.3s ease-in-out; 
+    transform-origin: center; 
+    will-change: transform;
 }
 
 .cartridge-img:hover {
@@ -137,18 +195,21 @@ body {
     display: block;
     float: left;
     position: relative;
-    top: -12vw;
+    top: 4vw;
     width: 25%;
+    height: 0px;
     transform: translateY(-40px) !important;
     transition: transform 0.6s ease-in-out;
 }
 .cartridge-img:not(:hover) {
+    /* border: red solid 2px; */
+    height: 0px;
     margin-left: 37.5%;
     padding: 0;
     display: block;
     float: left;
     position: relative;
-    top: -12vw;
+    top: 4vw;
     width: 25%;
     transition: transform 2s ease-in-out; /* Smooth transition when not hovered */
 }
@@ -204,4 +265,133 @@ body {
     animation: sparkle 0.3s ease-out forwards, explosion 0.2s ease-out forwards;
     filter: blur(10px);
     box-shadow: 0 0 30px rgb(255, 255, 255), 0 0 60px rgba(255, 0, 0, 1);
+}
+
+
+/* Styling the container */
+.shiny-object {
+    /* border: red solid 2px; */
+    position: relative;
+    overflow: hidden;
+    width: 24vw;
+    height: 24vw;
+    top: -24.8vw;
+    margin: 0 auto;
+    /* border: 2px solid red; */
+    animation: rotateMove 20s infinite ease-in-out;
+    clip-path: polygon(
+      0% 0%,    
+      100% 0%,  
+      100% 80%, 
+      90% 80%,  
+      90% 100%, 
+      10% 100%,
+      10% 80%,  
+      0% 80%    
+    );
+}
+  
+  
+  /* The shine effect */
+  .shine {
+    position: absolute;
+    top: -200%; 
+    left: -200%;
+    width: 200%; 
+    height: 200%;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0) 30%,
+      rgba(255, 255, 255, 0.8) 50%,
+      rgba(255, 255, 255, 0) 70%
+    );
+    transform: rotate(30deg); 
+    animation: shine-animation 5s infinite ease-in-out;
+    pointer-events: none; 
+  }
+  
+  /* Animation for the shine effect */
+  @keyframes shine-animation {
+    0% {
+      top: -200%;
+      left: -200%;
+    }
+    50% {
+      top: 100%;
+      left: 100%;
+    }
+    100% {
+      top: 200%;
+      left: 200%;
+    }
+  }
+  
+  
+
+  @media (max-width: 1000px) {
+    .cartridge img {
+        width: 100%;
+        /* margin-right: 15%;  */
+    }
+    .cartridge-img img {
+        width: 110%;
+        margin-top: 10%;
+        margin-left: -5%;
+    }
+    .shiny-object {
+        width: 27.5vw;
+        height: 27vw;
+        top: -28vw;
+        left: -1.5vw;
+    }
+    .cartridge h2{
+        font-size: 3vw;
+        margin-bottom: 10%;
+        /* padding-bottom: 10%; */
+    }
+
+}
+
+@media (max-width: 700px) {
+    .cartridge img {
+        width: 120%;
+        margin-left: -10%;
+    }
+    .cartridge-img img {
+        width: 120%;
+        margin-left: -10%;
+    }
+    .shiny-object {
+        width: 30vw;
+        height: 29.5vw;
+        top: -31vw;
+        left: -3vw;
+    }
+    .cartridge h2{
+        font-size: 1rem;
+        margin-bottom: 10%;
+        /* width: 100vw;
+        margin-left: -50vw; */
+        word-wrap: normal;
+        width: 150%;
+        margin-left: -25%;
+        text-align: center;
+        /* padding-bottom: 10%; */
+    }
+}
+@media (max-width: 400px) {
+    .cartridge img {
+        width: 150%;
+        margin-left: -25%;
+    }
+    .cartridge-img img {
+        width: 150%;
+        margin-left: -25%;
+    }
+    .shiny-object {
+        width: 37vw;
+        height: 36vw;
+        top: -38vw;
+        left: -6vw;
+    }
 }
