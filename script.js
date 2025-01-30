@@ -48,8 +48,8 @@ function mouse_spark2(event) {
     }, 1000);  // Match the animation duration
 }
 
-let targetX = 50, targetY = 50; // Target gradient position
-let currentX = 50, currentY = 50; // Current animated position
+let targetX = 50, targetY = 35; // Target gradient position
+let currentX = 50, currentY = 35; // Current animated position
 const lerpFactor = 0.01; // Slow transition for smooth movement
 
 document.addEventListener("mousemove", (event) => {
@@ -61,7 +61,7 @@ document.addEventListener("mousemove", (event) => {
 
     // Move gradient in the opposite direction, with more noticeable shift
     targetX = 50 - x * 15;
-    targetY = 50 - y * 15;
+    targetY = 35 - y * 15;
 });
 
 function animateGradient() {
@@ -73,9 +73,9 @@ function animateGradient() {
 
     // Apply the updated, stronger gradient
     bg.style.background = `radial-gradient(circle at ${currentX}% ${currentY}%, 
-rgb(241, 114, 142) 20%,  
-rgb(209, 78, 106) 40%, 
-rgb(194, 46, 78) 100% )`;
+rgb(241, 114, 142) 10%,  
+rgb(160, 51, 75) 30%, 
+rgb(148, 30, 56) 100% )`;
 
     // Continue the animation loop
     requestAnimationFrame(animateGradient);
