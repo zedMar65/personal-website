@@ -107,3 +107,7 @@ function triggerShine() {
 
 // Start the first shine effect
 triggerShine();
+
+function flipCartridge() {
+    document.querySelector('.cartridge-container').classList.toggle('flipped');
+}
