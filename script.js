@@ -67,7 +67,12 @@ animateGradient();
 
 const shinyObject = document.querySelector('.shiny-object');
 
+var doShine = true;
+
 function triggerShine() {
+    if (!doShine) {
+        return;
+    }
     const shine = shinyObject.querySelector('.shine');
     shine.style.top = '-200%';
     shine.style.left = '-200%';
@@ -82,6 +87,145 @@ function triggerShine() {
 
 triggerShine();
 
-function flipCartridge() {
-    document.querySelector('.cartridge-container').classList.toggle('flipped');
+
+document.querySelector(".cartridge-img").addEventListener("click", function (event) {
+    if (this.classList.contains("clicked")) return; // Prevent repeat clicks
+    this.classList.add("clicked");
+
+    transition(event);
+});
+
+function transition(event) {
+    doShine = false;
+    const cartridgeImg = document.querySelector(".cartridge-img img");
+    const cartridgeContainer = document.querySelector(".cartridge-img");
+
+    // Capture current position before removing hover effect
+    const computedStyle = window.getComputedStyle(cartridgeContainer);
+    const currentTransform = computedStyle.transform;
+
+    // Apply inline transform to freeze position
+    cartridgeContainer.style.transform = currentTransform;
+
+    // Disable hover effect
+    cartridgeContainer.classList.add("disabled");
+
+    // Disable interaction
+    cartridgeImg.style.pointerEvents = 'none';
+
+    // Reset animation
+    cartridgeImg.style.animation = 'none';
+    void cartridgeImg.offsetWidth; // Force reflow
+
+    setTimeout(() => {}, 100);
+
+    // Add spin animation
+    cartridgeImg.style.animation = 'spin 1s ease-in-out';
+
+    // Create explosion at mouse position
+    createExplosionAura(event.clientX, event.clientY);
+
+    // Wait for spin animation to finish, then change image
+    setTimeout(() => {
+        cartridgeImg.src = "assets/cartridge-back.png";
+        cartridgeImg.style.transform += ' rotateY(0deg)';
+    }, 500);
+
+    setTimeout(() => {
+        // cartridgeImg.style.transform = 'scaleX(-1)';
+        cartridgeImg.style.animation = 'moveDown 1s ease-in-out';
+        const scrollToElement = document.querySelector('.scroll-to');
+        const elementTop = scrollToElement.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+            top: elementTop,
+            behavior: 'smooth'
+        });
+    }, 1000);
+    setTimeout(() => {
+        cartridgeImg.style.top = '70vh';
+    }, 2000);
+    setTimeout(() => {
+        transitionEffect()
+    }, 2500);
+    
 }
+
+function createExplosionAura(x, y) {
+    const aura = document.createElement("div");
+    aura.classList.add("explosion-aura");
+
+    // Position the aura at the mouse coordinates
+    aura.style.left = `${x - 75}px`; // Centering the explosion (half of 150px width)
+    aura.style.top = `${y - 75}px`;
+
+    document.body.appendChild(aura);
+
+    // Remove aura after animation ends
+    setTimeout(() => {
+        aura.remove();
+    }, 800);
+}
+
+
+const grid = document.getElementById("grid");
+    const rows = 20;
+    const cols = 20;
+    let blocks = [];
+
+    function updateGridPosition() {
+        grid.style.top = "0px"; // Keep it in viewport
+    }
+
+    window.addEventListener("scroll", updateGridPosition);
+    updateGridPosition(); // Set initial position
+
+    // Create blocks
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            let block = document.createElement("div");
+            block.classList.add("block");
+            grid.appendChild(block);
+            blocks.push({ el: block, x: c, y: r });
+        }
+    }
+
+    function transitionEffect(callback) {
+        let delay = 0;
+        blocks.sort((a, b) => (a.x + a.y) - (b.x + b.y)); // Sort diagonally
+
+        // Fade in (black blocks covering screen)
+        blocks.forEach((block, index) => {
+            setTimeout(() => {
+                block.el.style.opacity = "1";
+            }, delay);
+            delay += 3; // Faster transition
+        });
+
+        setTimeout(() => {
+            callback && callback(); // Call when fully black
+        }, delay + 300);
+        
+        // Fade out (revealing new screen)
+        setTimeout(() => {
+            document.body.style.overflow = 'hidden';
+            // document.querySelector('.screen').style.backgroundColor = 'rgb(198, 236, 256)';
+            const screen = document.querySelector('.screen');
+            document.querySelector('.screen-content').style.backgroundImage = 'url("assets/screen.png")';
+            document.querySelector('.screen-content').style.imageRendering = 'pixelated';
+            document.querySelector('.screen-content').style.backgroundSize = 'cover';
+            document.querySelector('.screen-content').style.backgroundPosition = 'center';
+            screen.style.display = 'block';
+            const scrollToElement = document.querySelector('.scroll-to');
+            const elementTop = scrollToElement.getBoundingClientRect().top + window.scrollY;
+            document.querySelector('.screen').style.top = `${elementTop}px`;
+            document.querySelector('.screen').style.zIndex = '10';
+            delay = 0;
+            blocks.forEach((block, index) => {
+                setTimeout(() => {
+                    block.el.style.opacity = "0";
+                }, delay);
+                delay += 3;
+            });
+        }, delay + 700);
+        
+    }

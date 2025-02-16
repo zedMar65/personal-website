@@ -195,6 +195,7 @@ body {
 
 /* Style for shiny object */
 .shiny-object {
+    pointer-events: none;
     position: relative;
     overflow: hidden;
     width: 24vw;
@@ -207,6 +208,7 @@ body {
 
 /* Style for shine effect */
 .shine {
+    pointer-events: none;
     position: absolute;
     top: -200%;
     left: -200%;
@@ -218,11 +220,34 @@ body {
     pointer-events: none;
 }
 
+.console {
+    position: relative;
+    top: 80%;
+    width: 30vw;
+    display: block;
+    float: left;
+    margin-left: 35vw;
+}
+
+/* Style for console image */
+.console img {
+    image-rendering: pixelated;
+    width: 100%;
+    height: auto;
+}
+
+
 /* Keyframes for shine animation */
 @keyframes shine-animation {
     0% { top: -200%; left: -200%; }
     50% { top: 100%; left: 100%; }
     100% { top: 200%; left: 200%; }
+}
+
+.scroll-to{
+    position: absolute;
+    top: 90vh;
+    width: 100%;
 }
 
 /* Media query for screens with max width of 1000px */
@@ -241,6 +266,11 @@ body {
     .cartridge h2 {
         font-size: 3vw;
         margin-bottom: 10%;
+    }
+    /* console size goes up proportionally to the cartridge-img img */
+    .console{
+        width: 50vw;
+        margin-left: 25vw;
     }
 }
 
@@ -263,6 +293,11 @@ body {
         margin-left: -25%;
         text-align: center;
     }
+    .console{
+        width: 60vw;
+        margin-left: 20vw;
+        top: 75%;
+    }
 }
 
 /* Media query for screens with max width of 400px */
@@ -277,24 +312,13 @@ body {
         top: -38vw;
         left: -6vw;
     }
+    .console{
+        width: 70vw;
+        margin-left: 15vw;
+    }
 }
 
 /* Style for console container */
-.console {
-    position: relative;
-    top: 80%;
-    width: 30vw;
-    display: block;
-    float: left;
-    margin-left: 35vw;
-}
-
-/* Style for console image */
-.console img {
-    image-rendering: pixelated;
-    width: 100%;
-    height: auto;
-}
 
 /* Style for cartridge container */
 .cartridge-container {
@@ -303,4 +327,107 @@ body {
     height: auto;
     transform-style: preserve-3d;
     transition: transform 0.6s ease-in-out;
+}
+
+@keyframes spin {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(720deg); }
+}
+
+.explosion-aura {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 100, 0.7) 30%, rgba(255, 165, 0, 0.5) 60%, rgba(255, 255, 0, 0) 100%);
+    box-shadow: 0 0 40px rgba(255, 255, 100, 0.8), 0 0 80px rgba(255, 165, 0, 0.6);
+    transform: scale(0);
+    animation: explosion-effect 0.8s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes explosion-effect {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+/* Disable hover effect when clicked */
+/* Keep the image in place when disabled */
+.cartridge-img.disabled {
+    transition: none !important;
+}
+
+@keyframes moveDown{
+    0% { transform: translateY(0); }
+    100% { transform: translateY(70vh); }
+}
+#grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(20, 5%);
+    grid-template-rows: repeat(20, 5%);
+    pointer-events: none;
+    z-index: 9999; /* Ensure it's on top */
+}
+.block {
+    width: 100%;
+    height: 100%;
+    background: black;
+    opacity: 0;
+}
+
+.screen{
+    
+    display: none;
+    width: 100%;
+    height: 100%;
+    
+    position: absolute;
+    z-index: 0; /* Ensure it's on top */
+    /* background-color: aqua; */
+}
+.screen-content{
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    /* border: red solid 2px; */
+    max-width: 1237px;
+}
+
+.background-2{
+    background-color: rgb(88, 89, 89);
+    width: 120%;
+    height: 120%;
+    margin-left: -10%;
+    margin-top: -10%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.screen-content-plate{
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    height: 65.5vh;
+    margin-top: 18.5vh;
+    width: 100%;
+    max-width: 995px;
+    /* border: red solid 20px; */
+
 }
