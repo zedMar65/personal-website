@@ -387,24 +387,29 @@ body {
 }
 
 .screen{
-    
     display: none;
+    overflow: hidden;
     width: 100%;
     height: 100%;
+    padding: 0;
+    margin: 0;
     
     position: absolute;
-    z-index: 0; /* Ensure it's on top */
+    z-index: 5; /* Ensure it's on top */
     /* background-color: aqua; */
 }
 .screen-content{
+    /* border: blue solid 2px; */
     position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
-    height: 100%;
+    z-index: 5; /* Ensure it's on top */
     width: 100%;
-    /* border: red solid 2px; */
-    max-width: 1237px;
+    max-width: 125vh;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 65.7vh;
+    margin-top: 18.7vh;
+    font-size: 4vw;
+    color: /*rgb(40, 148, 148)*/white;
 }
 
 .background-2{
@@ -418,16 +423,34 @@ body {
     left: 0;
     z-index: -1;
 }
-
-.screen-content-plate{
+.rarclass {
+    /* border: green solid 2px; */
+    width: auto;
+    height: 100%;
+    image-rendering: pixelated;
     position: absolute;
-    margin: auto;
-    left: 0;
-    right: 0;
-    height: 65.5vh;
-    margin-top: 18.5vh;
-    width: 100%;
-    max-width: 995px;
-    /* border: red solid 20px; */
+    left: 50%;
+    transform: translateX(-50%);
+}
+.options{
+    width: 30vw;
+    /* border: 2px solid white; */
+    height: 100%;
+    border-right: solid 20px rgb(40, 148, 148);
+}
+.option{
+    /* pointer-events: none; */
+    background-color: rgb(241, 114, 142);
+    transition: background-color 0.3s ease-in-out;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border-bottom: solid 2px rgb(40, 148, 148); */
+}
 
+.option.hovered {
+    cursor: pointer;
+    background-color: rgb(184, 62, 88);
+    transition: 0.3s ease-in-out;
 }

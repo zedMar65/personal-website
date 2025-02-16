@@ -210,15 +210,24 @@ const grid = document.getElementById("grid");
             document.body.style.overflow = 'hidden';
             // document.querySelector('.screen').style.backgroundColor = 'rgb(198, 236, 256)';
             const screen = document.querySelector('.screen');
-            document.querySelector('.screen-content').style.backgroundImage = 'url("assets/screen.png")';
-            document.querySelector('.screen-content').style.imageRendering = 'pixelated';
-            document.querySelector('.screen-content').style.backgroundSize = 'cover';
-            document.querySelector('.screen-content').style.backgroundPosition = 'center';
             screen.style.display = 'block';
             const scrollToElement = document.querySelector('.scroll-to');
             const elementTop = scrollToElement.getBoundingClientRect().top + window.scrollY;
             document.querySelector('.screen').style.top = `${elementTop}px`;
             document.querySelector('.screen').style.zIndex = '10';
+            window.scrollTo({
+                top: elementTop,
+                behavior: 'auto'
+            });
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY !== elementTop) {
+                    window.scrollTo({
+                        top: elementTop,
+                        behavior: 'auto'
+                    });
+                }
+            });
             delay = 0;
             blocks.forEach((block, index) => {
                 setTimeout(() => {
@@ -229,3 +238,44 @@ const grid = document.getElementById("grid");
         }, delay + 700);
         
     }
+    const options = document.querySelectorAll('.option');
+    let selectedIndex = -1; // No option is selected initially
+    
+    function updateSelected(newIndex) {
+        // Remove 'hovered' class from all options
+        options.forEach(opt => opt.classList.remove('hovered'));
+    
+        // Set new index and apply 'hovered' class
+        selectedIndex = newIndex;
+        options[selectedIndex].classList.add('hovered');
+    }
+    
+    // Handle mouse hover
+    options.forEach((option, index) => {
+        option.addEventListener('mouseenter', () => {
+            updateSelected(index);
+        });
+    });
+    
+    // Handle keyboard navigation
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'ArrowDown') {
+            // Move down
+            if (selectedIndex < options.length - 1) {
+                updateSelected(selectedIndex + 1);
+            } else {
+                updateSelected(0); // Loop back to first option
+            }
+        } else if (event.key === 'ArrowUp') {
+            // Move up
+            if (selectedIndex > 0) {
+                updateSelected(selectedIndex - 1);
+            } else {
+                updateSelected(options.length - 1); // Loop back to last option
+            }
+        } else if (event.key === 'Enter' && selectedIndex !== -1) {
+            // Trigger the select function
+            select(selectedIndex);
+        }
+    });
+    
