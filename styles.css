@@ -438,19 +438,58 @@ body {
     height: 100%;
     border-right: solid 20px rgb(40, 148, 148);
 }
-.option{
-    /* pointer-events: none; */
-    background-color: rgb(241, 114, 142);
-    transition: background-color 0.3s ease-in-out;
+
+.option {
     height: 20%;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* border-bottom: solid 2px rgb(40, 148, 148); */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
-.option.hovered {
+.option::before, .option::after, .option .horizontal-top, .option .horizontal-bottom {
+    content: '';
+    position: absolute;
+    background-color: rgb(40, 148, 148); /* Border color */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.option::before {
+    top: 10%;
+    left: 7%;
+    width: 2px; /* Left vertical border */
+    height: 50%;
+}
+
+.option::after {
+    bottom: 10%;
+    right: 7%;
+    width: 2px; /* Right vertical border */
+    height: 50%;
+}
+
+.option .horizontal-top {
+    top: 10%;
+    left: 7%;
+    width: 50%; /* Top horizontal border */
+    height: 2px;
+}
+
+.option .horizontal-bottom {
+    bottom: 10%;
+    right: 7%;
+    width: 50%; /* Bottom horizontal border */
+    height: 2px;
+}
+
+.option.hovered::before, .option.hovered::after, .option.hovered .horizontal-top, .option.hovered .horizontal-bottom {
+    opacity: 1; /* Fade in on hover */
+}
+
+.option:hover{
+    color:rgb(246, 248, 248);
     cursor: pointer;
-    background-color: rgb(184, 62, 88);
-    transition: 0.3s ease-in-out;
 }
