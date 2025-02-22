@@ -279,3 +279,75 @@ const grid = document.getElementById("grid");
         }
     });
     
+
+function exit() {
+    // prompt("Are you sure you want to exit?");
+    let really = confirm("Really?");
+    if (really) {
+        window.close();
+    }
+}
+
+
+var selected = false;
+var typingAbort = 0; // Flag to track typing instances
+
+function select(index) {
+    var time = 0;
+    if (!selected) {
+        selected = true;
+        document.querySelector('.choice').style.display = 'block';
+        document.querySelector('.choice').style.opacity = '1';
+        setTimeout(() => {
+            document.querySelector('.choice').classList.add('show');
+        }, 10);
+        time = 1000;
+    }
+    setTimeout(() => {
+        let message;
+        switch (index) {
+            case 0:
+                message = 'Option 1 selected';
+                break;
+            case 1:
+                message = 'Option 2 selected';
+                break;
+            case 2:
+                message = 'Option 3 selected';
+                break;
+            case 3:
+                message = 'Option 4 selected';
+                break;
+            case 4:
+                message = 'Option 5 selected';
+                break;
+            default:
+                message = 'Unknown option selected';
+        }
+
+        typeText(message);
+    }, time);
+}
+
+function typeText(text) {
+    let paragraph = document.querySelector('.choice p');
+    paragraph.textContent = ""; // Clear the text initially
+    paragraph.style.opacity = '1';
+
+    let i = 0;
+    let speed = 50; // Adjust typing speed (milliseconds per letter)
+    let currentTypingSession = ++typingAbort; // Update flag to track the latest function call
+
+    function typeNextLetter() {
+        // If typingAbort has changed, stop this function (another selection was made)
+        if (currentTypingSession !== typingAbort) return;
+
+        if (i < text.length) {
+            paragraph.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeNextLetter, speed);
+        }
+    }
+
+    typeNextLetter(); // Start typing
+}

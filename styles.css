@@ -408,7 +408,7 @@ body {
     transform: translateX(-50%);
     height: 65.7vh;
     margin-top: 18.7vh;
-    font-size: 4vw;
+    font-size: clamp(1rem, 6vw, 3rem);
     color: /*rgb(40, 148, 148)*/white;
 }
 
@@ -432,12 +432,31 @@ body {
     left: 50%;
     transform: translateX(-50%);
 }
-.options{
-    width: 30vw;
-    /* border: 2px solid white; */
+.options {
+    width: 40%;
     height: 100%;
-    border-right: solid 20px rgb(40, 148, 148);
+    position: relative; /* Needed for absolute positioning of pseudo-elements */
+    padding-right: 20px; /* Extra space for the border effect */
+    display: block;
+    float: left;
 }
+
+.options::after,
+.options::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px; /* Each line is 7.5px wide to make up the 20px total including spacing */
+    height: 100%;
+    background-color: rgb(40, 148, 148);
+}
+
+.options::before {
+    width: 5px;
+    right: 12.5px; /* Moves the first line left to create the 5px gap */
+}
+
 
 .option {
     height: 20%;
@@ -490,6 +509,128 @@ body {
 }
 
 .option:hover{
-    color:rgb(246, 248, 248);
     cursor: pointer;
+}
+
+.exit-button{
+    width: calc(58.5% - 20px);
+    /* border: 2px solid green; */
+    height: 20%;
+    text-align: right;
+    /* padding-top: 5%; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.exit-button::before {
+    top: 10%;
+    left: 7%;
+    width: 2px; /* Left vertical border */
+    height: 50%;
+}
+
+.exit-button::after {
+    bottom: 10%;
+    right: 7%;
+    width: 2px; /* Right vertical border */
+    height: 50%;
+}
+
+.exit-button .horizontal-top {
+    top: 10%;
+    left: 7%;
+    width: 50%; /* Top horizontal border */
+    height: 2px;
+}
+
+.exit-button .horizontal-bottom {
+    bottom: 10%;
+    right: 7%;
+    width: 50%; /* Bottom horizontal border */
+    height: 2px;
+}
+
+.exit-button::before, .exit-button::after, .exit-button .horizontal-top, .exit-button .horizontal-bottom {
+    content: '';
+    position: absolute;
+    background-color: rgb(40, 148, 148); /* Border color */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease-in-out;
+}
+
+.exit-button:hover::before, .exit-button:hover::after, .exit-button:hover .horizontal-top, .exit-button:hover .horizontal-bottom {
+    opacity: 1; /* Fade in on hover */
+}
+
+.exit-button:hover{
+    cursor: pointer;
+}
+
+.exit-button img{
+    image-rendering: pixelated;
+    height: 60%;
+}
+
+.image-plate{
+    width: calc(58.5% - 20px);
+    height: 79%;
+    float: right;
+    display: block;
+    font-size: 20%;
+}
+
+.choice{
+    margin-top: 1%;
+    margin-right: 1%;
+    width: 98%;
+    height: 98%;
+    position: relative;
+    top: 0;
+    left: 0;
+    display: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.choice img{
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+    min-width: 500px;
+    transform-origin: 100% 100%;
+    transform: scale(0);
+    transition: transform 0.5s ease-in-out;
+}
+
+.choice.show img{
+    transform: scale(1);
+}
+
+.choice p{
+    margin-top: 25px;
+    margin-left: 15px;
+    opacity: 0;
+    position: relative;
+    top: -100%;
+    left: 0;
+    width: calc(100%-20px);
+    height: 100%;
+    font-size: 1rem;
+    color: white;
+    text-align: left;
+    z-index: 10;
+}
+
+@media (max-width: 500px){
+    .choice p{
+        font-size: 0.8rem;
+    }
 }
