@@ -323,14 +323,35 @@ function select(index) {
             "c\\> Freelancing Experience: Custom software solutions, Full-stack websites, Security consulting";
         break;
             case 2:
-                message = 'Option 3 selected';
+                message = 
+        "c\\> CanSat Main Python Code for Competition 2023: " +
+        "<a href='https://github.com/AntonLiutvinas/SpaceY' style='color: #00ff00;' target='_blank'>SpaceY</a>\n" +
+        "c\\> Code and Work for 2024: " +
+        "<a href='https://github.com/zedMar65/Cansat-Astrorum' style='color: #00ff00;' target='_blank'>Cansat-Astrorum</a>\n" +
+        "c\\> Python Blackjack Simulation and Machine Learning Library: " +
+        "<a href='https://github.com/zedMar65/Poker-sim-for-training-SOLID' style='color: #00ff00;' target='_blank'>Poker-sim-for-training-SOLID</a>\n" +
+        "c\\> Reengineered LAN Protocols for Better Security: " +
+        "<a href='https://github.com/zedMar65/Reengineered-Lan' style='color: #00ff00;' target='_blank'>Reengineered-Lan</a>\n" +
+        "c\\> Other Private Works for Freelance Clients";
                 break;
             case 3:
-                message = 'Option 4 selected';
+                message = "c\\> curl -L <div class='breakable'>https://zedmar65.github.io/Portfolio/resume.sh</div> | bash" +
+                        "\nc\\> This operation will download the resume, <a href='https://github.com/zedMar65/personal-website/raw/master/assets/Resume.pdf' style='color: #00ff00;' target='_blank'>continue</a>";
+
                 break;
-            case 4:
-                message = 'Option 5 selected';
-                break;
+                case 4:
+                    message = 
+                        "c\\> Contact me through the following:\n" +
+                        "c\\> Email: " +
+                        "<a href='https://mail.google.com/mail/?view=cm&fs=1&to=marius.jedinkus@gmail.com' style='color: #00ff00;' target='_blank'>marius.jedinkus@gmail.com</a>\n" +
+                        "c\\> Phone: " +
+                        "<a href='tel:+37064024968' style='color: #00ff00;' target='_blank'>+37064024968</a>\n" +
+                        "c\\> GitHub: " +
+                        "<a href='https://github.com/zedMar65' style='color: #00ff00;' target='_blank'>zedMar65</a>";
+                    break;
+                
+
+                
             default:
                 message = 'Unknown option selected';
         }
