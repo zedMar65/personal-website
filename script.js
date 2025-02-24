@@ -307,11 +307,21 @@ function select(index) {
         let message;
         switch (index) {
             case 0:
-                message = 'Option 1 selected';
-                break;
-            case 1:
-                message = 'Option 2 selected';
-                break;
+    message = 
+        "c\\> Hey, I'm a <b style='color: #00ff00;'>self-taught software developer</b> and <b style='color: #00ff00;'>cybersecurity enthusiast</b> with a passion for building <span style='color: #ffcc00;'>secure</span> and <span style='color: #ffcc00;'>efficient</span> applications.\n"+
+        "c\\> With over <b style='color: #00ffff;'>two years</b> of experience freelancing on Fiverr, I've worked on a variety of projects, ranging from <span style='color: #ff6600;'>custom software solutions</span> to <span style='color: #ff6600;'>full-stack web development</span>.\n"+
+        "c\\> My expertise lies in <b style='color: #ff3333;'>low-level programming</b>, <b style='color: #ff3333;'>system security</b>, and <b style='color: #ff3333;'>reverse engineering</b>, giving me a deep understanding of how things work under the hood.\n"+
+        "c\\> <b style='color: #ff00ff;'>Constantly driven by curiosity and a passion for discovering new technologies.</b>";
+    break;
+
+    case 1:
+        message = 
+            "c\\> Programming Languages: C++, Python, Assembly\n" +
+            "c\\> Cybersecurity Expertise: Reverse Engineering, Malware Analysis, Network Security\n" +
+            "c\\> Software Development: Desktop Applications, Web Development, Scripting & Automation\n" +
+            "c\\> Low-Level & System Knowledge: Machine Code, Internet Infrastructure, OS Internals\n" +
+            "c\\> Freelancing Experience: Custom software solutions, Full-stack websites, Security consulting";
+        break;
             case 2:
                 message = 'Option 3 selected';
                 break;
@@ -331,19 +341,23 @@ function select(index) {
 
 function typeText(text) {
     let paragraph = document.querySelector('.choice p');
-    paragraph.textContent = ""; // Clear the text initially
+    paragraph.innerHTML = ""; // Clear previous text
     paragraph.style.opacity = '1';
 
     let i = 0;
-    let speed = 50; // Adjust typing speed (milliseconds per letter)
-    let currentTypingSession = ++typingAbort; // Update flag to track the latest function call
+    let speed = 1; // Adjust typing speed
+    let currentTypingSession = ++typingAbort; // Track latest function call
 
     function typeNextLetter() {
-        // If typingAbort has changed, stop this function (another selection was made)
         if (currentTypingSession !== typingAbort) return;
 
+        let tempText = text.slice(0, i)
+            .replace(/\n/g, "<br>") // Convert newlines to <br>
+            .replace(/(c\\>)/g, "<span style='color: #00ff00;'>$1</span>"); // Optional: Color the CMD prompt
+
+        paragraph.innerHTML = tempText;
+
         if (i < text.length) {
-            paragraph.textContent += text.charAt(i);
             i++;
             setTimeout(typeNextLetter, speed);
         }
