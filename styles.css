@@ -76,6 +76,7 @@ body {
     margin: 0 auto;
 }
 
+
 /* Style for the arrows */
 .arrows {
     position: relative;
@@ -85,7 +86,10 @@ body {
     height: auto;
     image-rendering: pixelated;
 }
-
+.fullscreen-section {
+    height: calc(var(--vh) * 100);
+  }
+  
 /* Hover effect for arrows */
 .arrows:hover {
     cursor: pointer;
