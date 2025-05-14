@@ -308,10 +308,10 @@ function select(index) {
         switch (index) {
             case 0:
     message = 
-        "c\\> Hey, I'm a <b style='color: #00ff00;'>self-taught software developer</b> and <b style='color: #00ff00;'>cybersecurity enthusiast</b> with a passion for building <span style='color: #ffcc00;'>secure</span> and <span style='color: #ffcc00;'>efficient</span> applications.\n"+
-        "c\\> With over <b style='color: #00ffff;'>two years</b> of experience freelancing on Fiverr, I've worked on a variety of projects, ranging from <span style='color: #ff6600;'>custom software solutions</span> to <span style='color: #ff6600;'>full-stack web development</span>.\n"+
-        "c\\> My expertise lies in <b style='color: #ff3333;'>low-level programming</b>, <b style='color: #ff3333;'>system security</b>, and <b style='color: #ff3333;'>reverse engineering</b>, giving me a deep understanding of how things work under the hood.\n"+
-        "c\\> <b style='color: #ff00ff;'>Constantly driven by curiosity and a passion for discovering new technologies.</b>";
+        "c\\> Hey, I'm a <b style='color: #00ff00;'>self-taught software developer</b> and <b style='color: #00ff00;'>cybersecurity enthusiast</b> with a passion for building <span style='color: #00ff00;'>secure</span> and <span style='color: #00ff00;'>efficient</span> applications.\n"+
+        "c\\> With over <b style='color: #00ff00;'>two years</b> of experience freelancing on Fiverr, I've worked on a variety of projects, ranging from <span style='color: #00ff00;'>custom software solutions</span> to <span style='color: #00ff00;'>full-stack web development</span>.\n"+
+        "c\\> My expertise lies in <b style='color: #00ff00;'>low-level programming</b>, <b style='color: #00ff00;'>system security</b>, and <b style='color: #00ff00;'>reverse engineering</b>, giving me a deep understanding of how things work under the hood.\n"+
+        "c\\> <b>Constantly driven by curiosity and a passion for discovering new technologies.</b>";
     break;
 
     case 1:
@@ -332,6 +332,8 @@ function select(index) {
         "<a href='https://github.com/zedMar65/Poker-sim-for-training-SOLID' style='color: #00ff00;' target='_blank'>Poker-sim-for-training-SOLID</a>\n" +
         "c\\> Reengineered LAN Protocols for Better Security: " +
         "<a href='https://github.com/zedMar65/Reengineered-Lan' style='color: #00ff00;' target='_blank'>Reengineered-Lan</a>\n" +
+        "c\\> Multi-purpose application for network scripting automation: " +
+        "<a href='https://github.com/zedMar65/zedMar65-General_pwn_tool_lol_oWo' style='color: #00ff00;' target='_blank'>GW-tool</a>\n" +
         "c\\> Other Private Works for Freelance Clients";
                 break;
             case 3:
