@@ -410,8 +410,8 @@ body {
     max-width: 125vh;
     left: 50%;
     transform: translateX(-50%);
-    height: 65.7vh;
-    margin-top: 18.7vh;
+    height: calc(var(--vh, 1vh) * 65.7);
+    margin-top: calc(var(--vh, 1vh) * 18.7);
     font-size: clamp(1rem, 6vw, 3rem);
     color: /*rgb(40, 148, 148)*/white;
 }
