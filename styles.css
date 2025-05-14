@@ -421,7 +421,7 @@ body {
     width: 120%;
     height: calc(var(--vh, 1vh) * 120);
     margin-left: -10%;
-    margin-top: -10%;
+    margin-top: calc(var(--vh, 1vh) * -10);
     position: absolute;
     top: 0;
     left: 0;
@@ -430,7 +430,7 @@ body {
 .rarclass {
     /* border: green solid 2px; */
     width: auto;
-    height: 100%;
+    height: calc(var(--vh, 1vh) * 100);
     image-rendering: pixelated;
     position: absolute;
     left: 50%;
