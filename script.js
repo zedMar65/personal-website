@@ -338,7 +338,7 @@ function select(index) {
                 break;
             case 3:
                 message = "c\\> curl -L <div class='breakable'>https://zedmar65.github.io/Portfolio/resume.sh</div> | bash" +
-                        "\nc\\> This operation will download the resume, <a href='https://github.com/zedMar65/personal-website/raw/master/assets/Resume.pdf' style='color: #00ff00;' target='_blank'>continue</a>";
+                        "\nc\\> This operation will download the resume, <a href='https://raw.githubusercontent.com/zedMar65/personal-website/master/assets/Resume.pdf' style='color: #00ff00;' target='_blank'>continue</a>";
 
                 break;
                 case 4:
