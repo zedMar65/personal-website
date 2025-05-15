@@ -311,7 +311,7 @@ function select(index) {
         "c\\> Hey, I'm a <b style='color: #00ff00;'>self-taught software developer</b> and <b style='color: #00ff00;'>cybersecurity enthusiast</b> with a passion for building <span style='color: #00ff00;'>secure</span> and <span style='color: #00ff00;'>efficient</span> applications.\n"+
         "c\\> With over <b style='color: #00ff00;'>two years</b> of experience freelancing on Fiverr, I've worked on a variety of projects, ranging from <span style='color: #00ff00;'>custom software solutions</span> to <span style='color: #00ff00;'>full-stack web development</span>.\n"+
         "c\\> My expertise lies in <b style='color: #00ff00;'>low-level programming</b>, <b style='color: #00ff00;'>system security</b>, and <b style='color: #00ff00;'>reverse engineering</b>, giving me a deep understanding of how things work under the hood.\n"+
-        "c\\> <b>Constantly driven by curiosity and a passion for discovering new technologies.</b>";
+        "c\\> <b>Constantly driven by curiosity and a passion for discovering new technologies.</b><br>";
     break;
 
     case 1:
@@ -320,7 +320,7 @@ function select(index) {
             "c\\> Cybersecurity Expertise: Reverse Engineering, Malware Analysis, Network Security\n" +
             "c\\> Software Development: Desktop Applications, Web Development, Scripting & Automation\n" +
             "c\\> Low-Level & System Knowledge: Machine Code, Internet Infrastructure, OS Internals\n" +
-            "c\\> Freelancing Experience: Custom software solutions, Full-stack websites, Security consulting";
+            "c\\> Freelancing Experience: Custom software solutions, Full-stack websites, Security consulting\n";
         break;
             case 2:
                 message = 
@@ -334,28 +334,28 @@ function select(index) {
         "<a href='https://github.com/zedMar65/Reengineered-Lan' style='color: #00ff00;' target='_blank'>Reengineered-Lan</a>\n" +
         "c\\> Multi-purpose application for network scripting automation: " +
         "<a href='https://github.com/zedMar65/zedMar65-General_pwn_tool_lol_oWo' style='color: #00ff00;' target='_blank'>GW-tool</a>\n" +
-        "c\\> Other Private Works for Freelance Clients";
+        "c\\> Other Private Works for Freelance Clients\n";
                 break;
             case 3:
                 message = "c\\> curl -L <div class='breakable'>https://zedmar65.github.io/Portfolio/resume.sh</div> | bash" +
-                        "\nc\\> This operation will download the resume, <a href='https://raw.githubusercontent.com/zedMar65/personal-website/master/assets/Resume.pdf' style='color: #00ff00;' target='_blank'>continue</a>";
+                        "\nc\\> This operation will download the resume, <a href='https://raw.githubusercontent.com/zedMar65/personal-website/master/assets/Resume.pdf' style='color: #00ff00;' target='_blank'>continue</a>\n";
 
                 break;
                 case 4:
                     message = 
                         "c\\> Contact me through the following:\n" +
                         "c\\> Email: " +
-                        "<a href='https://mail.google.com/mail/?view=cm&fs=1&to=marius.jedinkus@gmail.com' style='color: #00ff00;' target='_blank'>marius.jedinkus@gmail.com</a>\n" +
+                        "<a href='https://mail.google.com/mail/?view=cm&fs=1&to=marius.jedinkus@gmail.com' style='color: #00ff00;' target='_blank'>Marius_Jedinkus</a>\n" +
                         "c\\> Phone: " +
                         "<a href='tel:+37064024968' style='color: #00ff00;' target='_blank'>+37064024968</a>\n" +
                         "c\\> GitHub: " +
-                        "<a href='https://github.com/zedMar65' style='color: #00ff00;' target='_blank'>zedMar65</a>";
+                        "<a href='https://github.com/zedMar65' style='color: #00ff00;' target='_blank'>zedMar65</a>\n";
                     break;
                 
 
                 
             default:
-                message = 'Unknown option selected';
+                message = 'Unknown option selected\n';
         }
 
         typeText(message);
