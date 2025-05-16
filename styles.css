@@ -675,3 +675,48 @@ body {
     overflow-wrap: break-word;
     word-wrap: break-word;
 }
+
+.chops-l{
+    position: absolute;
+    width: 30vw;
+    top: 15vh;
+    height: 80vh;
+background: radial-gradient(ellipse at left center, rgb(0, 247, 255) 0%, rgba(255, 0, 0, 0) 70%);
+
+}
+.chops-r{
+    background: radial-gradient(ellipse at right center, rgb(0, 247, 255) 0%, rgba(255, 0, 0, 0) 70%);
+    position: absolute;
+    width: 20vw;
+    right: 0vw;
+    top: 15vh;
+    height: 80vh;
+}
+.chops-l img, .chops-r img{
+    image-rendering: pixelated;
+    position: relative;
+}
+
+.chops-l .img-1{
+    left: -4vw;
+    height: 35vw;
+    top: 18vh;
+}
+
+.chops-r .img-1{
+    height: 35vw;
+    left: -5vw;
+    top: 20vh;
+}
+.chops-r .img-2{
+    height:20vw;
+}
+
+@media (max-width: 1000px){
+    .chops-l{
+        opacity: 0;
+    }
+    .chops-r{
+        opacity: 0;
+    }
+}
