@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    height: 100vh; /* Use viewport height instead of 100% */
+    width: 100vw;  /* Same for width */
+    margin: 0;
+    padding: 0;
+}
+
+.base_grid {
+    padding: 20px;
+    background-color: black;
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "heady heady heady"
+        "lefty bod righty"
+        "fotty fotty fotty";
+}
+
+.heady {
+    height: 200px;
+    grid-area: heady;
+    background-color: blue;
+}
+
+.bod {
+    grid-area: bod;
+    background-color: aqua;
+}
+
+.fotty {
+    height: 200px;
+    grid-area: fotty;
+    background-color: blueviolet;
+}
+
+.lefty {
+    grid-area: lefty;
+    background-color: red;
+}
+
+.righty {
+    grid-area: righty;
+    background-color: red;
+}
