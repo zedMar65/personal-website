@@ -308,14 +308,14 @@ function select(index) {
     switch (index) {
       case 0:
         message =
-          "c\\> Hey, I'm a <b style='color: #00ff00;'>self-taught software developer</b> and <b style='color: #00ff00;'>cybersecurity enthusiast</b> with a passion for building <span style='color: #00ff00;'>secure</span> and <span style='color: #00ff00;'>efficient</span> applications.\n" +
+          "c\\> Hey, I'm a <b style='color: #00ff00;'>self-taught software developer</b> and <b style='color: #00ff00;'>cybersecurity enthusiast</b> with a passion for building <span style='color: #00ff00;'>secure</span> and <span style='color: #00ff00;'>efficient</span> applications currently enrolled in KTU IT engineering bachelor course.\n" +
           "c\\> With over <b style='color: #00ff00;'>two years</b> of experience freelancing on Fiverr, I've worked on a variety of projects, ranging from <span style='color: #00ff00;'>custom software solutions</span> to <span style='color: #00ff00;'>full-stack web development</span>.\n" +
-          "c\\> My expertise lies in <b style='color: #00ff00;'>low-level programming</b>, <b style='color: #00ff00;'>system security</b>, and <b style='color: #00ff00;'>reverse engineering</b>, giving me a deep understanding of how things work under the hood.\n" +
-          "c\\> <b>Constantly driven by curiosity and a passion for discovering new technologies.</b><br>";
+          "c\\> My expertise lies in <b style='color: #00ff00;'>low-level programming</b>, <b style='color: #00ff00;'>system security</b>, and <b style='color: #00ff00;'>reverse engineering</b>, giving me a deep understanding of how things work under the hood.\n";
         break;
 
       case 1:
         message =
+          "c\\> Education: currently enrolled in KTU IT engineering bachelor course\n" +
           "c\\> Programming Languages: C++, Python, Assembly\n" +
           "c\\> Cybersecurity Expertise: Reverse Engineering, Malware Analysis, Network Security\n" +
           "c\\> Software Development: Desktop Applications, Web Development, Scripting & Automation\n" +
